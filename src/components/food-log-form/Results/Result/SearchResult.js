@@ -23,7 +23,7 @@ export default function SearchResult({ food }) {
   };
 
   return (
-    <li key={food.fdcId}>
+    <li>
       <h4>{food.description}</h4>
       {food.ingredients && <p>Ingredients: {food.ingredients}</p>}
       {food.brandName !== "none" && <p>Brand: {food.brandName}</p>}

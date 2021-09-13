@@ -41,7 +41,7 @@ export const register = async (data) => {
 };
 
 export const logFood = async (data) => {
-  const logged = await fetch(`${db}/user`, {
+  const logged = await fetch(`${db}/foodlog`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -53,8 +53,8 @@ export const logFood = async (data) => {
 };
 
 export const updateUser = async (data) => {
-  const update = await fetch(`${db}/foodlog`, {
-    method: "POST",
+  const update = await fetch(`${db}/user`, {
+    method: "PUT",
     headers: {
       "Content-Type": "application/json",
     },
@@ -72,3 +72,25 @@ export const deleteFood = async (data) => {
     body: JSON.stringify({ data }),
   });
 };
+
+export const adminGet = async (data) => {
+  const users = await fetch(`${db}/user/admin`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ data }),
+  });
+  return users.json()
+}
+
+export const adminDELETE = async (data) => {
+  const users = await fetch(`${db}/user/admin`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ data }),
+  });
+  return users.json()
+}

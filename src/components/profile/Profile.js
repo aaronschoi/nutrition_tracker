@@ -28,7 +28,7 @@ export default function Profile() {
     const submitHandler = event => {
         event.preventDefault();
         if(window.confirm("Are you positive about this change?")) {
-            updateUser(settings).then(data => dispatch({type: "retrieve-user", payload: data}))
+            updateUser(settings).then(data => dispatch({type: "retrieve-user", payload: data.data})).then(()=>history.push('/dashboard'))
         };
     }
     
@@ -50,13 +50,6 @@ export default function Profile() {
           placeholder="Enter your last name"
         />
         {/* year-month-date */}
-        <input
-          name="dob"
-          type="date"
-          value={settings.dob}
-          onChange={changeHandler}
-          placeholder="Enter your date of birth"
-        />
         <input
           name="sex"
           type="text"

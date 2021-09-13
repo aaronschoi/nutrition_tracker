@@ -1,4 +1,5 @@
 import { Switch, Route } from "react-router-dom";
+import AdminPanel from "./admin/AdminPanel";
 import Dashboard from "./dashboard/Dashboard";
 import FoodLogForm from "./food-log-form/FoodLogForm";
 import NutritionFacts from "./nutrition-facts/NutritionFacts";
@@ -19,6 +20,9 @@ export default function Layout() {
       </Route>
       <Route path="/nutritionfacts">
           <NutritionFacts />
+      </Route>
+      <Route path="/admin">
+        <AdminPanel />
       </Route>
     </Switch>
   );

@@ -19,7 +19,7 @@ export default function Login() {
         dispatch({ type: "retrieve-user", payload: data });
         return getLog(data.user_id);
       })
-      .then((data) =>
+      .then(({data}) =>
         dispatch({ type: "retrieve-foodlog", payload: data })
       ).then(() => history.push('/dashboard'))
       .then(() => dispatch({ type: "authenticated" }));

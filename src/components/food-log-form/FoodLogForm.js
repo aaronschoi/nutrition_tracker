@@ -1,8 +1,12 @@
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import { searchByQuery } from "../../api/USDA/api";
 import SearchResults from "./Results/SearchResults";
 
 export default function FoodLogForm() {
+
+  const { usda } = useSelector(state => state.user)
+
   const [userInput, setUserInput] = useState({
     query: "",
     brandName: "",
@@ -19,8 +23,7 @@ export default function FoodLogForm() {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    const apiKey = "1eitufSgokIoDtd2AP8I5NbP5XHEpFNzM5FTfk3A";
-    searchByQuery({...userInput, apiKey }).then(response => setResults(response.results))
+    searchByQuery({...userInput, apiKey: usda }).then(response => setResults(response.results))
   };
 
   return (
