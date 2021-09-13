@@ -1,7 +1,12 @@
 import { useState } from "react";
-import { login } from "../../../../api/backend/api";
+import { getLog, login } from "../../../../api/backend/api";
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 export default function Login() {
+  const dispatch = useDispatch();
+  const history = useHistory();
+
   const [user, setUser] = useState({
     username: "",
     password: "",
@@ -9,7 +14,15 @@ export default function Login() {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    login(user).then(console.log)
+    login(user)
+      .then((data) => {
+        dispatch({ type: "retrieve-user", payload: data });
+        return getLog(data.user_id);
+      })
+      .then((data) =>
+        dispatch({ type: "retrieve-foodlog", payload: data })
+      ).then(() => history.push('/dashboard'))
+      .then(() => dispatch({ type: "authenticated" }));
   };
 
   const changeHandler = (event) => {

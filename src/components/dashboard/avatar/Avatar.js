@@ -1,5 +1,10 @@
+import { useSelector } from "react-redux"
+
 export default function Avatar() {
+
+    const { avatar } = useSelector(state => state.user);
+
     return (
-        <img src="https://i.pravatar.cc/150" alt="avatar"/>
+        <img src={avatar} alt="This is your avatar!"/>
     )
 }

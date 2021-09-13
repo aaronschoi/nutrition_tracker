@@ -11,9 +11,9 @@ export const isLoggedIn = (state = false, action) => {
 
 export const user = (state = {}, action) => {
     switch(action.type) {
-        case("authenticated"):
+        case("retrieve-user"):
             return {...action.payload};
-        case("deauthenticated"):
+        case("logged-out"):
             return {};
         default:
             return state;
@@ -22,13 +22,22 @@ export const user = (state = {}, action) => {
 
 export const foodlog = (state = [], action) => {
     switch(action.type) {
-        case("authenticated"):
-            const newState = action.payload.map(food => {
-                return {...food}
-            })
+        case("retrieve-foodlog"):
+            const newState = Array.isArray(action.payload) ? [...action.payload] : [];
             return newState;
-        case("deauthenticated"):
+        case("remove-foodlog"):
             return [];
+        default:
+            return state;
+    }
+}
+
+export const targetFood = (state = "", action) => {
+    switch(action.type) {
+        case("new-target"):
+            return `${action.payload}`;
+        case("no-target"):
+            return "";
         default:
             return state;
     }

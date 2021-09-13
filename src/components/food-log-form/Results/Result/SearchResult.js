@@ -1,14 +1,18 @@
 import { useState } from "react";
-import { logFood } from "../../../../../api/backend/api";
+import { useSelector } from "react-redux";
+import { logFood } from "../../../../api/backend/api";
 
 export default function SearchResult({ food }) {
+  
+  const { user_id } = useSelector(state => state.user)
+
   const [portion, setPortion] = useState("1");
 
   const addHandler = (event) => {
     const data = {
       food: food.description,
       fdcId: food.fdcId,
-      user_id: "REDUX",
+      user_id,
       portion,
     };
     logFood(data);

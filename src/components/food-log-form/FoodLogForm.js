@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { searchByQuery } from "../../../api/USDA/api";
+import { searchByQuery } from "../../api/USDA/api";
 import SearchResults from "./Results/SearchResults";
 
 export default function FoodLogForm() {
