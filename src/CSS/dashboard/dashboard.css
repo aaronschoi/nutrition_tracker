@@ -1,0 +1,17 @@
+@import url("./foodlog/foodlog.css");
+
+.dashboard-container {
+    height: 90vh;
+    overflow: hidden;
+}
+
+.dashboard-greeting-container {
+    height: 30vh;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.dashboard-greeting {
+    font-size: 70px;
+    color: var(--main-color);
+}

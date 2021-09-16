@@ -1,0 +1,25 @@
+a {
+  
+}
+
+a:link {
+  color: var(--main-color);
+}
+
+/* visited link */
+a:visited {
+  color: var(--main-color);
+}
+
+/* mouse over link */
+a:hover {
+  color: var(--main-color);
+  background: black;
+  padding: 1px;
+  border-radius: 10px;
+}
+
+/* selected link */
+a:active {
+  color: var(--main-color);
+}

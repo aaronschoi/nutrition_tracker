@@ -1,7 +1,7 @@
 export default function LandingInfo() {
   return (
-    <section>
-      <article>
+    <section className="info">
+      <article className="info-content">
         <p>All of the default nutrient settings are based on USDA standards.</p>
         <p>
           This is a tool to help keep you and your loved ones properly

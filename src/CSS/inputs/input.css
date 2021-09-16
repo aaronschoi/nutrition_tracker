@@ -1,0 +1,14 @@
+.general-input {
+    border: none;
+    padding: 10px;
+    background-color: var(--main-color);
+    border-radius: 5px;
+}
+
+.general-input::placeholder {
+    color: var(--black);
+}
+
+.general-input:focus {
+    outline: none;
+}

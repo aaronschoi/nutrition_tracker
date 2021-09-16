@@ -5,6 +5,6 @@ export default function Avatar() {
     const { avatar } = useSelector(state => state.user);
 
     return (
-        <img src={avatar} alt="This is your avatar!"/>
+        <img className="dashboard-avatar"  src={avatar} alt="This is your avatar!"/>
     )
 }

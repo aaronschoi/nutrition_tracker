@@ -1,0 +1,72 @@
+.foodlog-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  place-items: center;
+  justify-items: center;
+  gap: 20px;
+}
+
+.foodlog-list-container {
+  height: 50vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  place-items: center;
+  gap: 10px;
+  overflow: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  width: 60%;
+}
+
+.foodlog-list-container::-webkit-scrollbar {
+  display: none;
+}
+
+.foodlog-header-container {
+  height: 10vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.foodlog-header {
+  font-size: 40px;
+  color: var(--main-color);
+  text-decoration: underline overline dotted var(--secondary-two-color);
+}
+
+.foodlog-element {
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  background: var(--main-color);
+  width: 60%;
+  height: 30px;
+}
+
+.foodlog-list-padding {
+  height: 30px;
+}
+
+.foodlog-element-header {
+  font-size: 25px;
+}
+
+.foodlog-element-header:hover {
+  cursor: pointer;
+}
+
+.foodlog-trashcan {
+  height: 30px;
+  padding: 5px;
+  border-radius: 50%;
+  transition: 0.25s ease-in-out;
+}
+
+.foodlog-trashcan:hover {
+  cursor: pointer;
+  background: var(--secondary-two-color);
+  border: 1px solid var(--black);
+}

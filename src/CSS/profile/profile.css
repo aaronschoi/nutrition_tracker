@@ -1,0 +1,41 @@
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+}
+
+.profile-top-input {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    padding: 20px 0px;
+}
+
+.profile-top-element {
+    width: 30%;
+}
+
+.profile-bottom-input {
+    width: 80%;
+}
+
+.profile-input {
+    width: calc(100% - 20px);
+    margin-bottom: 20px;
+}
+
+.profile-button-container {
+    display: flex;
+    justify-content: flex-end;
+    width: 80%;
+}
+
+.profile-button {
+    margin-right: 20px;
+}
+
+.profile-element {
+    height: 40px;
+}

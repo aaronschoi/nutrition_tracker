@@ -27,10 +27,11 @@ export default function FoodLogForm() {
   };
 
   return (
-    <>
-    <h2>Search</h2>
-    <form onSubmit={submitHandler}>
+    <div className="foodlog-form-container">
+    <h2 className="foodlog-form-header">Search</h2>
+    <form className="foodlog-form-search" onSubmit={submitHandler}>
       <input
+        className="general-input foodlog-form-input"
         name="query"
         type="text"
         value={userInput.query}
@@ -38,15 +39,16 @@ export default function FoodLogForm() {
         placeholder="Search. . ."
       />
       <input
+        className="general-input foodlog-form-input"
         name="brandName"
         type="text"
         value={userInput.brandName}
         onChange={changeHandler}
-        placeholder="Enter the brand name of the product here (if you want to)."
+        placeholder="Brand Name (if applicable)"
       />
       <button type="submit">Search</button>
     </form>
     { results.length > 0 && <SearchResults results={results} /> }
-    </>
+    </div>
   );
 }

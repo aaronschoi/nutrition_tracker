@@ -1,12 +1,16 @@
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { logFood } from "../../../../api/backend/api";
+import { useHistory } from "react-router-dom";
+import Loading from "../../../loaders/Loading";
 
 export default function SearchResult({ food }) {
-  
-  const { user_id } = useSelector(state => state.user)
+  const { user_id } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+  const history = useHistory();
 
   const [portion, setPortion] = useState("1");
+  const [loading, setLoading] = useState(false);
 
   const addHandler = (event) => {
     const data = {
@@ -15,27 +19,38 @@ export default function SearchResult({ food }) {
       user_id,
       portion,
     };
-    logFood(data);
+    setLoading(true);
+    logFood(data)
+      .then(({ data }) => dispatch({ type: "retrieve-foodlog", payload: data }))
+      .then(() =>
+        setTimeout(() => {
+          history.push("/dashboard");
+        }, 5000)
+      );
   };
 
-  const changeHandler = (event) => {
-    setPortion(event.target.value);
-  };
-
-  return (
-    <li>
-      <h4>{food.description}</h4>
-      {food.ingredients && <p>Ingredients: {food.ingredients}</p>}
-      {food.brandName !== "none" && <p>Brand: {food.brandName}</p>}
-      <input
-        name="portion"
-        type="text"
-        value={portion}
-        onChange={changeHandler}
-      />
-      <button type="button" onClick={addHandler}>
-        +
+  const result = (
+    <li className="foodlog-results-element">
+      <div className="foodlog-results-element-content">
+        <h4 className="foodlog-results-element-header">{food.description}</h4>
+        {food.ingredients && <p>Ingredients: {food.ingredients}</p>}
+        {food.brandName !== "none" && <p>Brand: {food.brandName}</p>}
+      </div>
+      <button className="foodlog-results-element-button" type="button" onClick={addHandler}>
+        Add to Food Log
       </button>
     </li>
+  );
+
+  return (
+    <>
+      {loading ? (
+        <Loading
+          message={`${food.description} is being added to your food log...`}
+        />
+      ) : (
+        result
+      )}
+    </>
   );
 }

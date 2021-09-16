@@ -11,6 +11,8 @@ export default function FoodLog() {
             {foodlog.length > 0 && foodlog.map( food => {
                 return <Food key={food.fdcId} food={food} /> 
             })}
+            <li className="foodlog-list-padding">
+            </li>
         </FoodLogContainer>
     )
 }

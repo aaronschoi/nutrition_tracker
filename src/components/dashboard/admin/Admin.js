@@ -6,7 +6,7 @@ export default function Admin() {
 
     return (
         <>
-        {admin ? <Link to="/admin">Admin Panel</Link> : null}
+        {admin ? <Link className="header-link" to="/admin">Admin Panel</Link> : null}
         </>
     )
 }

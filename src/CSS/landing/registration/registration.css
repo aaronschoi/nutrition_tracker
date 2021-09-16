@@ -1,0 +1,7 @@
+.registration-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2em;
+    margin: 20px;
+    padding: 20px;
+}

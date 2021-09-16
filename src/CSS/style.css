@@ -1,0 +1,38 @@
+:root {
+    --main-color: #EDDDD4;
+    --secondary-one-color: #197278;
+    --secondary-two-color: #C44536;
+    --tertiary-one-color: #283D3B;
+    --tertiary-two-color: #772E25;
+    --black: #161618;
+    --font-size-normal: 20px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Kaisei+Tokumin:wght@400;500;700;800&display=swap');
+@import url("./reset/reset.css");
+@import url("./links/links.css");
+@import url("./inputs/input.css");
+@import url("./button/button.css");
+@import url("./radio/radio.css");
+@import url("./avatar/avatar.css");
+@import url("./loading/loading.css");
+@import url("./landing/landing.css");
+@import url("./header/header.css");
+@import url("./dashboard/dashboard.css");
+@import url("./foodsearch/foodsearch.css");
+@import url("./profile/profile.css");
+@import url("./admin/admin.css");
+@import url("./nutritionfacts/nutritionfacts.css");
+ 
+* {
+    font-family: 'Kaisei Tokumin', serif;
+    font-size: var(--font-size-normal);
+}
+
+.App {
+    background-image: url('../images/leafier.jpg');
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: var(--black);
+}

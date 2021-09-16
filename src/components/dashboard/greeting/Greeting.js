@@ -9,9 +9,9 @@ export default function Greeting() {
 
   useEffect(() => {
     setTime(new Date().getHours());
-  });
+  }, []);
 
-  const greeting = time > 11 ? "Afternoon" : time > 16 ? "Evening" : "Morning";
+  const greeting = (time > 11 & time < 16) ? "Afternoon" : time > 16 ? "Evening" : "Morning";
 
-  return <div>Good {greeting}, {first}!</div>;
+  return <div className="dashboard-greeting">Good {greeting}, {first}!</div>;
 }

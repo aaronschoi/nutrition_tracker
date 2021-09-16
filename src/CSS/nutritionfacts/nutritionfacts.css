@@ -1,0 +1,69 @@
+.nutritionfacts-container {
+    height: 85vh;
+    display: flex;
+    justify-content: center;
+}
+
+.nutritionfacts {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    place-items: stretch;
+    padding: 10px;
+    border: 1px solid var(--main-color);
+    color: var(--main-color);
+    width: 40%;
+}
+
+.nutritionfacts-title {
+    width: 100%;
+    font-size: 5em;
+}
+
+.nutritionfacts-header {
+    font-size: 40px;
+}
+
+.nutritionfacts-serving-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-end;
+}
+
+.line-thick {
+    height: 10px;
+    background: var(--main-color);
+}
+
+.line-thin {
+    height: 1px;
+    background: var(--main-color);
+}
+
+.nutrients-container {
+    overflow: scroll;
+    max-height: 60vh;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.nutrients-container::-webkit-scrollbar {
+    display: none;
+  }
+
+.nutrient-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+.nutrient-content {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+    font-weight: normal;
+    font-size: 20px;
+}

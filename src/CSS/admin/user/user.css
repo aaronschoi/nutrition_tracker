@@ -1,0 +1,58 @@
+.user-list-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    place-items: center stretch;
+    gap: 10px;
+    background: var(--seconary-one-color);
+    padding: 10px;
+}
+
+.user-container {
+    display: flex;
+    justify-content: space-between;
+    border: 3px solid var(--tertiary-two-color);
+    padding: 10px;
+    background: var(--secondary-two-color);
+    border-radius: 10px;
+    align-items: center;
+}
+
+.user-avatar {
+ border-radius: 50%;
+ height: 100px;
+ width: 100px;
+}
+
+.user-content {
+    display: flex;
+    background: inherit;
+    text-align: center;
+}
+
+.user-content-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background:inherit;
+}
+
+.user-content-body {
+    display: flex;
+    flex-direction: column;
+    background: inherit;
+}
+
+.user-name {
+ font-size: 30px;
+ font-weight: bold;
+ background: inherit;
+}
+
+.user-content-element {
+ font-size: 20px;
+ background: inherit;   
+}
+
+.user-button {
+    max-height: 40px;
+}

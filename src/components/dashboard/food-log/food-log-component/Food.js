@@ -24,9 +24,9 @@ export default function Food({ food }) {
   };
 
   return (
-    <li>
-      <h2 onClick={nutritionFactsHandler}>{food.food}</h2>
-      <div onClick={deleteHandler}>Trash Can</div>
+    <li className="foodlog-element">
+      <h2 className="foodlog-element-header" onClick={nutritionFactsHandler}>{food.food}</h2>
+      <img className="foodlog-trashcan" src={require('../../../../images/trashcan.svg').default} alt="trash can of removal" onClick={deleteHandler} />
     </li>
   );
 }

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { adminGet } from "../../api/backend/api";
 import { v4 as uid } from "uuid";
@@ -15,14 +15,18 @@ export default function AdminPanel() {
   }, []);
 
   return (
-    <ul>
+    <div className="admin-container">
+      <h2 className="admin-header">Admin Panel</h2>
+      <h3 className="admin-usercount">Number of Users (not including yourself): {users.length - 1}</h3>
+      <ul className="user-list-container">
       {users.length > 0 ? (
         users.map((user) => {
           return <User key={uid()} user={user} />;
         })
       ) : (
-        <li>No Users</li>
+        <div>No Users</div>
       )}
-    </ul>
+      </ul>
+    </div>
   );
 }

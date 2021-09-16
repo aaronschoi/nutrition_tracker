@@ -1,21 +1,27 @@
-import LandingContainer from "./LandingContainer"
+import LandingContainer from "./LandingContainer";
 import LandingLogin from "./LandingLogin/LandingLogin";
 import Registration from "./registration/Registration";
-import {Switch, Route, Link} from "react-router-dom"
+import { Switch, Route, Link } from "react-router-dom";
 
 export default function Landing() {
-    return (
+  return (
+    <Switch>
+      <Route path="/registration">
         <LandingContainer>
-            <Switch>
-            <Route path="/registration">
-            <h3>Have an Account Already? <Link to="/" >Click Here</Link></h3>
-                    <Registration />
-                </Route>
-                <Route path="/">
-                <h3>New User? <Link to="/registration" >Click Here</Link></h3>
-                    <LandingLogin />
-                </Route>
-            </Switch>
+          <h3 className="landing-question">
+            Have an Account Already? <Link className="landing-link" to="/">Click Here</Link>
+          </h3>
+          <Registration />
         </LandingContainer>
-    )
+      </Route>
+      <Route path="/">
+        <LandingContainer>
+          <h3 className="landing-question">
+            New User? <Link className="landing-link" to="/registration">Click Here</Link>
+          </h3>
+          <LandingLogin />
+        </LandingContainer>
+      </Route>
+    </Switch>
+  );
 }

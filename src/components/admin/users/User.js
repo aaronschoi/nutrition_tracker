@@ -21,15 +21,27 @@ export default function User({
     }
   };
 
-  return (
-    <div>
-      <img src={avatar} alt={`${first} ${last}`} />
-      <h4>{`${first} ${last}`}</h4>
-      <p>Sex: {sex}</p>
-      <p>Username: {username}</p>
-      <button type="button" onClick={clickHandler}>
-        REMOVE
+  const userUI = (
+    <li className="user-container">
+      <div className="user-content">
+      <img className="user-avatar" src={avatar} alt={`${first} ${last}`} />
+      <div className="user-content-column">
+      <h4 className="user-name">{`${first} ${last}`}</h4>
+      <div className="user-content-body">
+        <p className="user-content-element">Sex: {sex}</p>
+        <p className="user-content-element">Username: {username}</p>
+      </div>
+      </div>
+      </div>
+      <button className="user-button" type="button" onClick={clickHandler}>
+        DELETE USER
       </button>
-    </div>
+    </li>
+  )
+
+  return (
+    <>
+    {`${user.first} ${user.last}` === `${first} ${last}` ? null : userUI}
+    </>
   );
 }

@@ -1,0 +1,7 @@
+.dashboard-avatar {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    border: 5px solid var(--main-color);
+    margin-left: 50px;
+}

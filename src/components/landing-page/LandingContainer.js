@@ -1,6 +1,6 @@
 export default function LandingContainer(props) {
     return (
-        <div>
+        <div className="landing-container">
             {props.children}
         </div>
     )

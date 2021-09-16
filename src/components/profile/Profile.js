@@ -34,8 +34,10 @@ export default function Profile() {
     
 
   return (
-    (<form onSubmit={submitHandler}>
+    (<form className="profile-container" onSubmit={submitHandler}>
+      <div className="profile-top-input">
         <input
+          className="general-input profile-element profile-top-element"
           name="first"
           type="text"
           value={settings.first}
@@ -43,21 +45,47 @@ export default function Profile() {
           placeholder="Enter your first name"
         />
         <input
+          className="general-input profile-element profile-top-element"
           name="last"
           type="text"
           value={settings.last}
           onChange={changeHandler}
           placeholder="Enter your last name"
         />
-        {/* year-month-date */}
+        <div className="radio-container profile-element profile-top-element">
+        <div className="radio-element">
+          <label className="radio-label">
+            <input
+              name="sex"
+              type="radio"
+              value="male"
+              checked={settings.sex === "male"}
+              onChange={changeHandler}
+              className="radio"
+            />
+            <span className="checkmark"></span>
+          </label>
+          <h4 className="radio-element-name">male</h4>
+        </div>
+        <div className="radio-element">
+          <label className="radio-label">
+            <input
+              name="sex"
+              type="radio"
+              value="female"
+              checked={settings.sex === "female"}
+              onChange={changeHandler}
+              className="radio"
+            />
+            <span className="checkmark"></span>
+          </label>
+          <h4 className="radio-element-name">female</h4>
+        </div>
+      </div>
+      </div>
+      <div className="profile-bottom-input">
         <input
-          name="sex"
-          type="text"
-          value={settings.sex}
-          onChange={changeHandler}
-          placeholder="select your biological sex"
-        />
-        <input
+          className="general-input profile-input profile-element"
           name="avatar"
           type="text"
           value={settings.avatar}
@@ -65,14 +93,18 @@ export default function Profile() {
           placeholder="Enter a username"
         />
         <input
+          className="general-input profile-input profile-element"
           name="usda"
           type="text"
           value={settings.usda}
           onChange={changeHandler}
           placeholder="Enter your USDA API KEY here"
         />
-        <button type="submit">Save</button>
+        </div>
+        <div className="profile-button-container">
+        <button className="profile-button" type="submit">Save</button>
         <button type="button" onClick={cancelHander}>Cancel</button>
+        </div>
       </form>)
   );
 }

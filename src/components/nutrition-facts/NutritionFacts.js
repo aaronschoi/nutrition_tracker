@@ -6,27 +6,31 @@ export default function NutritionFacts() {
 
     const { targetFood } = useSelector(state => state)
 
+    console.log(targetFood)
+
     return (
-        <div>
-            <h2>Nutrition Facts</h2>
-            <h3>{targetFood.description}</h3>
-            <div>
-                <div>Serving Size {targetFood.serving}</div>
+        <div className="nutritionfacts-container">
+        <div className="nutritionfacts">
+            <h2 className="nutritionfacts-title">Nutrition Facts</h2>
+            <div className="line-thin"></div>
+            <div className="nutritionfacts-serving-container">
+            <h3 className="nutritionfacts-header">{targetFood.description}</h3>
+                <p className="nutritionfacts-serving">Serving Size {targetFood.serving}</p>
             </div>
-            <div></div>
+            <div className="line-thick"></div>
             <div>
                 <div>Amount Per Serving</div>
-                <div></div>
-                <div>
-                    <div>Calories {targetFood.nutrients.Energy}</div>
-                </div>
+                <div className="line-thin"></div>
+                <ul className="nutrients-container">
             {targetFood.nutrients.map(nutrient => {
                 if(Object.keys(nutrient)[0] !== "Energy"){
                     return <Nutrient key={uid()} nutrient={nutrient} />
                 }
                 return null;
             })}
+            </ul>
             </div>
+        </div>
         </div>
     )
 }

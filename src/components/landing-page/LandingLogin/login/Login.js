@@ -33,9 +33,10 @@ export default function Login() {
   };
 
   return (
-    <form onSubmit={submitHandler}>
-      <div>
+    <form className="login" onSubmit={submitHandler}>
+      <div className="login-inputs">
         <input
+          className="general-input"
           name="username"
           type="text"
           value={user.username}
@@ -43,6 +44,7 @@ export default function Login() {
           placeholder="Enter your Username"
         />
         <input
+          className="general-input"
           name="password"
           type="password"
           value={user.password}
@@ -50,7 +52,9 @@ export default function Login() {
           placeholder="Enter your Password"
         />
       </div>
-      <button type="submit">login</button>
+    <div className="login-button-container">
+      <button className="login-button" type="submit">login</button>
+    </div>
     </form>
   );
 }
