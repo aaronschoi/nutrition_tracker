@@ -23,6 +23,7 @@
 @import url("./profile/profile.css");
 @import url("./admin/admin.css");
 @import url("./nutritionfacts/nutritionfacts.css");
+@import url("./error/error.css");
  
 * {
     font-family: 'Kaisei Tokumin', serif;

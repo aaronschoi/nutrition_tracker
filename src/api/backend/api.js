@@ -2,29 +2,31 @@ const auth = process.env.REACT_APP_AUTH_SERVER;
 const db = process.env.REACT_APP_DB_SERVER;
 
 export const login = async (data) => {
-  const tokens = await fetch(`${auth}/login`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ data }),
-  }).then((res) => res.json());
+  try {
+    const tokens = await fetch(`${auth}/login`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ data }),
+    });
 
-  const user = await fetch(`${db}/user`, {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-      authorization: `Bearer ${tokens.accessToken}`,
-    },
-  }).then((response) => response.json());
-
-  return user;
+    const user = await fetch(`${db}/user`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${tokens.accessToken}`,
+      },
+    });
+    return user.json();
+  } catch (error) {
+    throw new Error(error);
+  }
 };
 
 export const getLog = async (userId) => {
-  const foodlog = await fetch(`${db}/foodlog/${userId}`).then((response) =>
-    response.json()
-  );
+  const foodlog = await fetch(`${db}/foodlog/${userId}`)
+    .then((response) => response.json())
 
   return foodlog;
 };
@@ -81,8 +83,8 @@ export const adminGet = async (data) => {
     },
     body: JSON.stringify({ data }),
   });
-  return users.json()
-}
+  return users.json();
+};
 
 export const adminDELETE = async (data) => {
   const users = await fetch(`${db}/user/admin`, {
@@ -92,5 +94,5 @@ export const adminDELETE = async (data) => {
     },
     body: JSON.stringify({ data }),
   });
-  return users.json()
-}
+  return users.json();
+};

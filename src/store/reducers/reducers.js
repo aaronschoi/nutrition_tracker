@@ -54,3 +54,15 @@ export const users = (state = [], action) => {
       return state;
   }
 };
+
+
+export const errors = (state = "", action) => {
+  switch (action.type) {
+    case "load-error":
+      return action.payload;
+    case "unload-error":
+      return "";
+    default:
+      return state;
+  }
+}

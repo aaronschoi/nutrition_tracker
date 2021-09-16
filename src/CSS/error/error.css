@@ -1,0 +1,27 @@
+.error-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    place-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background: rgba(22, 22, 24, 0.5);
+    height: 100vh;
+    width: 100vw;
+}
+
+.error {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 20px;
+    font-size: 30px;
+    background: var(--secondary-two-color);
+    border-radius: 20px;
+}
+
+.error-button {
+    width: 20%;
+    margin-top: 20px;
+}
