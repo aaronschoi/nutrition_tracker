@@ -6,8 +6,6 @@ export default function NutritionFacts() {
 
     const { targetFood } = useSelector(state => state)
 
-    console.log(targetFood)
-
     return (
         <div className="nutritionfacts-container">
         <div className="nutritionfacts">
