@@ -2,14 +2,13 @@ const auth = process.env.REACT_APP_AUTH_SERVER;
 const db = process.env.REACT_APP_DB_SERVER;
 
 export const login = async (data) => {
-  try {
     const tokens = await fetch(`${auth}/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ data }),
-    });
+    }).then(response => response.json())
 
     const user = await fetch(`${db}/user`, {
       method: "GET",
@@ -17,16 +16,19 @@ export const login = async (data) => {
         "Content-Type": "application/json",
         authorization: `Bearer ${tokens.accessToken}`,
       },
-    });
-    return user.json();
-  } catch (error) {
-    throw new Error(error);
-  }
+    }).then(response => response.json());
+
+    if(user.error){
+      return user.error
+    }
+    return user;
 };
 
 export const getLog = async (userId) => {
   const foodlog = await fetch(`${db}/foodlog/${userId}`)
     .then((response) => response.json())
+
+    console.log(foodlog)
 
   return foodlog;
 };

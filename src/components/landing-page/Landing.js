@@ -2,11 +2,8 @@ import LandingContainer from "./LandingContainer";
 import LandingLogin from "./LandingLogin/LandingLogin";
 import Registration from "./registration/Registration";
 import { Switch, Route, Link } from "react-router-dom";
-import { useSelector } from "react-redux";
 
 export default function Landing() {
-  const store = useSelector(state => state)
-  console.log(store)
 
   return (
     <Switch>

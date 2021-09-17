@@ -66,3 +66,14 @@ export const errors = (state = "", action) => {
       return state;
   }
 }
+
+export const panel = (state = true, action) => {
+  switch (action.type) {
+    case "panel-off":
+      return false;
+    case "panel-on":
+      return true;
+    default:
+      return state;
+  }
+}

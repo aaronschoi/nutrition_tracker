@@ -1,11 +1,12 @@
-import { useEffect } from "react";
+import {  useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { adminGet } from "../../api/backend/api";
 import { v4 as uid } from "uuid";
 import User from "./users/User";
+import Loading from "../loaders/Loading";
 
 export default function AdminPanel() {
-  const { user, users } = useSelector((state) => state);
+  const { user, users, panel } = useSelector((state) => state);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -14,6 +15,8 @@ export default function AdminPanel() {
     }
   }, []);
 
+  
+  if(panel) {
   return (
     <div className="admin-container">
       <h2 className="admin-header">Admin Panel</h2>
@@ -28,5 +31,7 @@ export default function AdminPanel() {
       )}
       </ul>
     </div>
-  );
+  );}
+
+  return <Loading message={"Removing User..."} />
 }

@@ -11,6 +11,7 @@ export const useLogout = () => {
     dispatch({ type: "remove-foodlog" });
     dispatch({ type: "no-target" });
     dispatch({ type: "unload-all" });
+    localStorage.clear();
     history.push("/");
   };
 };

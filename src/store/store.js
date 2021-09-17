@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { isLoggedIn, user, foodlog, targetFood, users, errors } from './reducers/reducers';
+import { isLoggedIn, user, foodlog, targetFood, users, errors, panel } from './reducers/reducers';
 
 const store = configureStore({
   reducer: {
@@ -8,7 +8,8 @@ const store = configureStore({
     foodlog,
     targetFood,
     users,
-    errors
+    errors,
+    panel,
   },
 });
 

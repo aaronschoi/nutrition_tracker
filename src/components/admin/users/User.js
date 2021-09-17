@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router";
 import { adminDELETE, adminGet } from "../../../api/backend/api";
 
 export default function User({
@@ -6,6 +7,7 @@ export default function User({
 }) {
   const { user } = useSelector((state) => state);
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const clickHandler = (event) => {
     if (user.admin) {
@@ -17,6 +19,11 @@ export default function User({
         adminDELETE({ user_id, admin: user.admin })
           .then(() => adminGet(user))
           .then(({ data }) => dispatch({ type: "load-users", payload: data }));
+        dispatch({ type: "panel-off" });
+        setTimeout(() => {
+          dispatch({type: "panel-on"})
+          history.push('/dashboard')
+        }, 3000)
       }
     }
   };
